@@ -1,0 +1,60 @@
+<title>Workorders</title>
+
+<aside class="right-side">
+    <section class="content-header">
+        <h1>
+            Workorders
+            <small>validate</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="/#/"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+            <li><a href="/#/workorders/">Workorders</a></li>
+            <li class="active">Validate</li>
+        </ol>
+    </section>
+
+    <section class="content">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box box-warning">
+                    <div class="box-header">
+                        <div class="pull-right box-tools">
+                            <div class="pull-right box-tools">
+                            </div>
+                        </div>
+                        <i class="fa fa-list"></i>
+                        <h3 class="box-title">List of workorders to validate</h3>
+                        <div class="pull-right box-tools">
+                        </div>
+                    </div>
+
+                    <div class="box-body table-responsive">
+                        <table ng-hide="workorders.length==0" class="table table-hover">
+                        	<thead>
+                        		<tr>
+                                    <th>User Name</th>
+                                    <th>Property Name</th>
+                                    <th></th>
+                        		</tr>
+                        	</thead>
+                        	<tbody>
+                        		<tr ng-repeat="workorder in workorders">
+                                    <td>
+                                        {{workorder.user.name}}
+                                    </td>
+                                    <td>
+                                        {{workorder.property.property_name}}
+                                    </td>
+                        			<td>
+                                        <a href="/#/workorders/validate/{{workorder.id}}" class="btn btn-xs btn-primary">view</a>
+                                    </td>
+                        		</tr>
+                        	</tbody>
+                        </table>
+                        <p ng-show="workorders.length==0">There are no workorders currently up for validation.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</aside>

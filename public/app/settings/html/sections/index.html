@@ -1,0 +1,64 @@
+x<title>{{msg}} Section</title>
+
+<aside class="right-side">
+    <section class="content-header">
+        <h1>
+            Products
+            <small>{{msg}} a product</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="/#/"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+            <li><a href="/#/sections"><i class="fa fa-list"></i> Products</a></li>
+        </ol>
+    </section>
+
+    <section class="content">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box box-primary">
+                    <div class="box-header">
+                        <div class="pull-right box-tools">
+                        </div>
+                        <i class="fa fa-list"></i>
+                        <h3 class="box-title">{{msg}} Product</h3>
+                    </div>
+				
+                    <div class="box-body">
+                    	<div class="row">
+							<div class="col-md-7">
+								<form ng-submit="addSection()">
+	                            	<div class="form-group">
+	                                	<label>Product name</label>
+	                                	<input ng-model="sec.name" id="sectionName" type="text" class="form-control">
+	                            	</div>
+	                            
+	                            	<button type="submit" class="btn btn-primary"><i class="fa fa-add"></i> {{msg}} product</button>
+	                            	<button ng-if="msg == 'Update'" class="btn btn-danger" ng-click="clear()"> Cancel</button>
+	                        	</form>
+							</div>
+							<div class="col-md-5">
+								<table class="table table-responsive">
+									<thead>
+										<tr>
+											<th>NAME</th>
+											<th>&nbsp;</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr class="cur" ng-repeat='section in sections'>
+											<td ng-click="update(section)">{{section.name}}</td>
+											<td>
+												<p ng-click="update(section)" class="btn btn-xs btn-warning"><i class="fa fa-edit"></i></p>
+												<p ng-click="delete(section)" class="btn btn-xs btn-warning"><i class="fa fa-trash-o"></i></p>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</aside>

@@ -1,0 +1,81 @@
+<title>Properties</title>
+
+<aside class="right-side">
+    <section class="content-header">
+        <h1>
+            Properties
+            <small>List of all properties</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="/#/"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+            <li class="active">Properties</li>
+        </ol>
+    </section>
+
+    <section class="content">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box box-warning">
+                    <div class="box-header">
+                        <div class="pull-right box-tools">
+                        </div>
+                        <i class="fa fa-list"></i>
+                        <h3 class="box-title">List of properties &nbsp; &nbsp; &nbsp;<small>Displaying {{totalProperties}} results</small></h3>
+                        <search options="options" filter="filter" query="filterText" fun="search()"></search>
+                    </div>
+
+                    <div class="box-body table-responsive">
+                        <table class="table table-hover">
+                        	<thead>
+                        		<tr>
+									<th><input type="checkbox" ng-model="masterCheck" ng-change="selectAll()"></th>
+                                    <th>Name</th>
+                                    <th>Address</th>
+                                    <th>City</th>
+                                    <th>State</th>
+                                    <th>Zip_code</th>
+                                    <th></th>
+                        		</tr>
+                        	</thead>
+                        	<tbody>
+                        		<tr dir-paginate="property in properties | itemsPerPage: 10" total-items="totalProperties">
+                                    <td>
+                                    	<input type="checkbox" ng-model="property.checked">
+                                    </td>
+                                    <td>
+                                        {{property.property_name}}
+                                    </td>
+                                    <td>
+                                        {{property.property_address}}
+                                    </td>
+                                    <td>
+                                        {{property.city}}
+                                    </td>
+                                    <td>
+                                        {{property.state}}
+                                    </td>
+                                    <td>
+                                        {{property.zip_code}}
+                                    </td>
+                        			<td>
+                                        <a ng-click="viewOnMap( property )" class="btn btn-xs btn-primary"><i class="fa fa-map-marker"></i></a>
+                                        <a href="/#/properties/{{property.id}}/edit" class="btn btn-xs btn-warning"><i class="fa fa-edit"></i></a>
+                                        <p ng-click="deleteProperty(property)" href="#" class="btn btn-xs btn-danger"><i class="fa fa-trash-o"></i></p>
+                                    </td>
+                        		</tr>
+                        	</tbody>
+                        </table>
+                        <dir-pagination-controls template-url="/bower_components/angular-utils-pagination/dirPagination.tpl.html" on-page-change="pageChanged(newPageNumber)"></dir-pagination-controls>
+                    	<br>
+                    	<br>
+                    	<br>
+                    	<button class="btn btn-primary btn-xs" ng-click="plotOnMap()"><i class="fa fa-map-marker"></i> View selected on Map</button>
+                    </div>
+                    <div class="box-body" ng-show="showMap">
+                    	<div style="height: 400px; width: 100%;" id="map"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</aside>

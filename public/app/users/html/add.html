@@ -1,0 +1,94 @@
+x<title>{{msg}} User</title>
+
+<aside class="right-side">
+    <section class="content-header">
+        <h1>
+            User
+            <small>{{msg}} a user</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="/#/"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+            <li><a href="/#/users"><i class="fa fa-list"></i> Users</a></li>
+            <li class="active">{{msg}}</li>
+        </ol>
+    </section>
+
+    <section class="content">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box box-primary">
+                    <div class="box-header">
+                        <div class="pull-right box-tools">
+                            <!-- <button class="btn btn-primary btn-sm" data-widget='collapse' data-toggle="tooltip" title="Collapse"><i class="fa fa-minus"></i></button> -->
+                        </div>
+                        <i class="fa fa-list"></i>
+                        <h3 class="box-title">{{msg}} User</h3>
+                    </div>
+
+                    <div class="box-body">
+						<div class="row">
+                        	<form ng-submit="addUser()">
+								<div class="col-md-6">
+									<div class="form-group">
+										<label>Name</label>
+										<input id="userName" ng-model="user.name" type="text" class="form-control">
+									</div>
+									<div class="form-group">
+										<label>Email</label>
+										<input name="email" ng-model="user.email" type="email" class="form-control">
+									</div>
+									<div class="form-group">
+										<label>Coverage area</label>
+										<input ng-model="user.coverage_area" type="text" class="form-control">
+									</div>
+									<div class="form-group">
+										<label>Home phone</label>
+										<input ng-model="user.home_phone" type="text" class="form-control">
+									</div>
+									<div class="form-group">
+										<label>Cell phone</label>
+										<input ng-model="user.cell_phone" type="text" class="form-control">
+									</div>
+									<div class="form-group">
+										<label>Role</label>
+										<select ng-model="user.role"class="form-control">
+											<option value="5">Off site employee</option>
+											<option value="4">On site employee</option>
+											<option value="3">Manager</option>
+											<option value="2">Senior Manager</option>
+											<option value="1">Admin</option>
+										</select>
+									</div>
+									<button type="submit" class="btn btn-primary"><i class="fa fa-add"></i> {{msg}} user</button>
+									<button type="button" ng-if="msg == 'Update'" class="btn btn-danger" ng-click="goBack('/users')"> Cancel</button>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<label>Address</label>
+										<input ng-model="user.address" type="text" class="form-control">
+									</div>
+									<div class="form-group">
+										<label>City</label>
+										<input ng-model="user.city" type="text" class="form-control">
+									</div>
+									<div class="form-group">
+										<label>State</label>
+										<input ng-model="user.state" type="text" class="form-control">
+									</div>
+									<div class="form-group">
+										<label>Zip_code</label>
+										<input ng-model="user.zip_code" type="text" class="form-control">
+									</div>
+									<div class="form-group">
+										<label>Password</label>
+										<input ng-model="user.password" type="password" class="form-control">
+									</div>
+								</div>
+							</form>
+						</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</aside>

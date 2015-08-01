@@ -1,0 +1,71 @@
+<title>Manage Workorder</title>
+
+<aside class="right-side">
+    <section class="content-header">
+        <h1>
+            Workorder
+            <small>manage workorder</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="/#/"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+            <li><a href="/#/workorders"><i class="fa fa-list"></i> Workorders</a></li>
+            <li class="active">Manage</li>
+        </ol>
+    </section>
+
+    <section class="content">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box box-primary">
+                    <div class="box-header">
+                        <div class="pull-right box-tools">
+                            <p ng-hide="workorder.user_id==0">Employee: {{workorder.user.name}}</p>
+                            <p ng-show="workorder.user_id==0">Employee: Unassigned</p>
+                            Property: {{workorder.property.property_name}}
+                        </div>
+                        <i class="fa fa-list"></i>
+                        <h3 class="box-title">Manage Workorder</h3>
+                    </div>
+
+                    <div class="box-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <form ng-submit="addTask()">
+                                    <div class="form-group">
+                                        <label>Product</label>
+                                        <select ng-options="s as s.name for s in sections" ng-model="tso.section" class="form-control"></select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Custom description</label>
+                                        <textarea ng-model="tso.description" class="form-control"></textarea>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary"><i class="fa fa-add"></i> Add task section</button>
+                                </form>
+                            </div>
+                            <div class="col-md-offset-1 col-md-5 table-responsive">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>PRODUCTS <em>(description)</em></th>
+                                            <th>&nbsp;</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="ts in taskSections">
+                                            <td>
+                                                {{ts.name}}
+                                                <br>
+                                                <em ng-if="ts.pivot.description">({{ts.pivot.description}})</em>
+                                            </td>
+                                            <td><p ng-click="detach(ts)" class="btn btn-danger btn-xs"> DELETE</p></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</aside>

@@ -1,0 +1,22 @@
+<aside class="right-side">
+
+    <section class="content-header">
+        <h1>
+            Dashboard
+            <small>Control panel</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li class="active"><i class="fa fa-dashboard"></i> Dashboard</li>
+        </ol>
+    </section>
+
+    <section class="content">
+
+        <div class="row">
+            <widget val="{{users.total}}" btn="usersBtn" text="No of registered users" wc="aqua" icon="person-stalker"></widget>
+            <widget btn="btn" text="Widget text" wc="red" icon="pie-graph"></widget>
+            <widget btn="propBtn" val="{{properties.total}}" text="No of Properties" wc="green" icon="stats-bars"></widget>
+        </div>
+
+    </section>
+</aside>

@@ -1,0 +1,13 @@
+<div class="pull-right box-tools">
+    <form ng-submit="search()" class="form-inline col-md-12">
+        <div class="form-group">
+            <select ng-model="filter" ng-options="o.value as o.name for o in options" class="form-control" ></select>
+        </div>
+        <div class="input-group">
+            <input ng-model="query" type="text" class="form-control" placeholder="Filter results" autofocus>
+            <div class="input-group-btn">
+                <button class="btn btn-primary" type="submit">go</button>
+            </div>
+        </div>
+    </form>
+</div>

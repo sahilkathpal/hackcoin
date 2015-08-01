@@ -1,0 +1,78 @@
+x<title>{{msg}} Task</title>
+
+<aside class="right-side">
+    <section class="content-header">
+        <h1>
+            Tasks
+            <small>{{msg}} all tasks</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="/#/"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+            <li><a href="/#/tasks"><i class="fa fa-list"></i> Tasks</a></li>
+        </ol>
+    </section>
+
+    <section class="content">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box box-primary">
+                    <div class="box-header">
+                        <div class="pull-right box-tools">
+                        </div>
+                        <i class="fa fa-list"></i>
+                        <h3 class="box-title">{{msg}} Tasks</h3>
+                    </div>
+				
+                    <div class="box-body">
+                    	<div class="row">
+							<div class="col-md-12">
+								<table class="table table-responsive">
+									<thead>
+										<tr>
+											<th>NAME</th>
+											<th>YES/NO</th>
+											<th>QUANTITY</th>
+											<th>LOCATION</th>
+											<th>BEFORE IMAGE</th>
+											<th>AFTER IMAGE</th>
+											<th></th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr class="cur" ng-repeat='task in tasks'>
+											<td ng-click="edit(task.id)">{{task.task_name}}</td>
+											<td>
+												<p ng-if="task.yn"><i class="fa fa-check"></i></p>
+												<p ng-if="!task.yn"><i class="fa fa-times"></i></p>
+											</td>
+											<td>
+												<p ng-if="task.qty"><i class="fa fa-check"></i></p>
+												<p ng-if="!task.qty"><i class="fa fa-times"></i></p>
+											</td>
+											<td>
+												<p ng-if="task.location"><i class="fa fa-check"></i></p>
+												<p ng-if="!task.location"><i class="fa fa-times"></i></p>
+											</td>
+											<td>
+												<p ng-if="task.before_image"><i class="fa fa-check"></i></p>
+												<p ng-if="!task.before_image"><i class="fa fa-times"></i></p>
+											</td>
+											<td>
+												<p ng-if="task.after_image"><i class="fa fa-check"></i></p>
+												<p ng-if="!task.after_image"><i class="fa fa-times"></i></p>
+											</td>
+											<td>
+												<a href="/#/tasks/{{task.id}}/edit"><p class="btn btn-xs btn-warning"><i class="fa fa-edit"></i></p></a>
+												<p ng-click="delete(task)" class="btn btn-xs btn-warning"><i class="fa fa-trash-o"></i></p>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</aside>

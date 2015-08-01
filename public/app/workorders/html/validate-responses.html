@@ -1,0 +1,64 @@
+<title>Tasks</title>
+
+<aside class="right-side">
+    <section class="content-header">
+        <h1>
+            Tasks
+            <small>List of all Responses</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="/#/"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+            <li><a href="/#/workorders/">Workorders</a></li>
+            <li><a href="/#/workorders/validate/">Validate</a></li>
+            <li><a href="/#/workorders/validate/{{workorderId}}/">Products</a></li>
+            <li><a href="/#/workorders/validate/{{workorderId}}/{{sectionId}}/">Tasks</a></li>
+            <li class="active">Task Responses</li>
+        </ol>
+    </section>
+
+    <section class="content">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box box-warning">
+                    <div class="box-header">
+                        <div class="pull-right box-tools">
+                            <div class="pull-right box-tools">
+                            </div>
+                        </div>
+                        <i class="fa fa-list"></i>
+                        <h3 class="box-title">List of Responses</h3>
+                        <div class="pull-right box-tools">
+                            <button class="btn btn-success btn-xs" ng-click="accept(true)">Accept</button>
+                            <button class="btn btn-danger btn-xs" ng-click="accept(false)">Reject</button>
+                        </div>
+                    </div>
+
+                    <div class="box-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h5>Before Images</h5>
+                                <hr class="img_hr">
+                                <div ng-repeat="before in beforeImages" ng-hide="beforeImages.length==0">
+                                    <img ng-src="/downloads/{{workorderId}}/{{before.before_image}}" class="responseImage">
+                                </div>
+                                <p class="help-block" ng-show="beforeImages.length==0">No before images submitted.</p>
+                                <hr class="img_hr">
+                            </div>    
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h5>After Images</h5>
+                                <hr class="img_hr">
+                                <div ng-repeat="after in afterImages" ng-hide="afterImages.length==0">
+                                    <img ng-src="/downloads/{{workorderId}}/{{after.after_image}}" class="responseImage">
+                                </div>
+                                <p class="help-block" ng-show="afterImages.length==0">No after images submitted.</p>
+                                <hr class="img_hr">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</aside>

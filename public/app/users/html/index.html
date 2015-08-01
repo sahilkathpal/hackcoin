@@ -1,0 +1,75 @@
+<title>Users</title>
+
+<aside class="right-side">
+    <section class="content-header">
+        <h1>
+            Users
+            <small>List of all users</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="/#/"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+            <li class="active">Users</li>
+        </ol>
+    </section>
+
+    <section class="content">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box box-warning">
+                    <div class="box-header">
+                        <div class="pull-right box-tools">
+                        </div>
+                        <i class="fa fa-list"></i>
+                        <h3 class="box-title">List of users &nbsp; &nbsp; &nbsp;<small>Displaying {{totalUsers}} results</small></h3>
+                        <search options="options" filter="filter" query="filterText" fun="search()"></search>
+                    </div>
+
+                    <div class="box-body table-responsive">
+                        <table class="table table-hover">
+                        	<thead>
+                        		<tr>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Role</th>
+                                    <th></th>
+                        		</tr>
+                        	</thead>
+                        	<tbody>
+                        		<tr dir-paginate="user in users | itemsPerPage: 10" total-items="totalUsers">
+                                    <td>{{$index+1}}</td>
+                                    <td>
+                                        {{user.name}}
+                                    </td>
+                                    <td>
+                                        {{user.email}}
+                                    </td>
+                                    <td ng-if="user.role == 1">
+                                        <p class="label label-danger">Admin</p>
+                                    </td>
+                                    <td ng-if="user.role == 2">
+                                        <p class="label label-warning">Sr. Manager</p>
+                                    </td>
+                                    <td ng-if="user.role == 3">
+                                        <p class="label label-warning">Manager</p>
+                                    </td>
+                                    <td ng-if="user.role == 4">
+                                        <p class="label label-primary">In house employee</p>
+                                    </td>
+                                    <td ng-if="user.role == 5">
+                                        <p class="label label-primary">Of-site employee</p>
+                                    </td>
+                        			<td>
+                                        <a href="/#/users/{{user.id}}/edit" class="btn btn-xs btn-warning"><i class="fa fa-edit"></i></a>
+                                        <p ng-click="deleteUser(user)" href="#" class="btn btn-xs btn-danger"><i class="fa fa-trash-o"></i></p>
+                                    </td>
+                        		</tr>
+                        	</tbody>
+                        </table>
+                        <dir-pagination-controls template-url="/bower_components/angular-utils-pagination/dirPagination.tpl.html" on-page-change="pageChanged(newPageNumber)"></dir-pagination-controls>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</aside>

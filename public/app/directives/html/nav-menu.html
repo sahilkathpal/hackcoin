@@ -1,0 +1,17 @@
+<ul class="sidebar-menu">
+    <li id="menuDashboard" ng-show="role < 2">
+        <a href="/#/">
+            <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+        </a>
+    </li>
+    <li class="treeview" ng-show="role < 3">
+        <a href="#">
+            <i class="fa fa-home"></i> <span>Properties</span>
+            <i class="fa fa-angle-left pull-right"></i>
+        </a>
+        <ul class="treeview-menu">
+            <li><a href="/#/properties"><i class="fa fa-angle-double-right"></i> All</a></li>
+            <li><a href="/#/properties/add"><i class="fa fa-angle-double-right"></i> Add</a></li>
+        </ul>
+    </li>
+</ul>
