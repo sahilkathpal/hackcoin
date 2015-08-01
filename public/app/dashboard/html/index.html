@@ -2,18 +2,59 @@
 
     <section class="content-header">
         <h1>
-            Dashboard
-            <small>Control panel</small>
+            Crowd funding
+            <small>help fund an idea</small>
         </h1>
         <ol class="breadcrumb">
-            <li class="active"><i class="fa fa-dashboard"></i> Dashboard</li>
+            <li class="active"><i class="fa fa-dashboard"></i> Crowdfund</li>
         </ol>
     </section>
 
     <section class="content">
 
         <div class="row">
-            
+            <div class="col-md-6">
+                <div class="box box-primary">
+                    <div class="box-header">
+                        <div class="pull-right box-tools">
+                        </div>
+                        <i class="fa fa-list"></i>
+                        <h3 class="box-title">Live Campaign feed</h3>
+                    </div>
+
+                    <div class="box-body table-responsive">
+                        <div ng-repeat="campaign in campaigns" class="box box-default">
+                            <div class="box-header with-border">
+                                <h3 class="box-title">{{campaign.title}}</h3>
+                            </div>
+                            <div class="box-body">
+                                {{campaign.description}}
+                                <br><br>
+                                Help me raise {{campaign.money}} bitcoins
+                                <br><br>
+                                <img ng-src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data={{campaign.address}}" width="100">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="box box-primary">
+                    <div class="box-header">
+                        <div class="pull-right box-tools">
+                        </div>
+                        <i class="fa fa-plus"></i>
+                        <h3 class="box-title">Start a campaign</h3>
+                    </div>
+
+                    <div class="box-body table-responsive">
+                        <a href="/#/campaigns/add" class="btn btn-primary">
+                            <i class="fa fa-plus"></i> Start the campaign
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
 
     </section>

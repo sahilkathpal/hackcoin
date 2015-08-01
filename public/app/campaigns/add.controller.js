@@ -6,11 +6,11 @@
 		function ($scope, Campaign) {
 			$scope.msg = 'Add';
 			$scope.addCampaign = function () {
-				Campaign.save($scope.Campaign, function (data) {
+				console.log($scope.campaign);
+				Campaign.save($scope.campaign, function (data) {
 					if (data.status) {
-						$scope.Campaign = {};
-						$('#CampaignName').focus();
-						notify('Campaign has been added.');
+						$scope.campaign = {};
+						notify('Campaign has been created');
 					}
 				});
 			};

@@ -15,8 +15,8 @@
     <body class="skin-blue" ng-controller="MainCtrl">
        <?php $user = Auth::user(); ?>
         <header class="header">
-            <a href="#" class="logo">
-                <i class="fa fa-cogs"></i> Lighter House
+            <a href="/#/" class="logo">
+                <i class="fa fa-bar-chart"></i> Lighter House
             </a>
             <nav class="navbar navbar-static-top" role="navigation">
                 <a href="#" class="navbar-btn sidebar-toggle" data-toggle="offcanvas" role="button">
@@ -82,7 +82,7 @@
                         </li>
                         <li class="treeview">
                             <a href="#">
-                                <i class="fa fa-home"></i> <span>Campaigns</span>
+                                <i class="fa fa-bullhorn"></i> <span>Campaigns</span>
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">

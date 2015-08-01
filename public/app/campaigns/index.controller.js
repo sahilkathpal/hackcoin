@@ -2,12 +2,13 @@
 	'use strict';
 	
 	angular.module('BrsManager.campaigns')
-	.controller('campaigns.PropertiesCtrl', ['$scope', 'Campaign',
+	.controller('campaigns.IndexCtrl', ['$scope', 'Campaign',
 		function ($scope, Campaign) {
 			
-			Campaign.getAll(obj, function (data) {
-				$scope.campaigns = data.data;
-			});
+			Campaign.query().$promise
+				.then(function (data) {
+					$scope.campaigns = data;
+				});
 
 		}
 	]);

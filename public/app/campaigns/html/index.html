@@ -19,7 +19,7 @@
                     <div class="box-header">
                         <div class="pull-right box-tools">
                         </div>
-                        <i class="fa fa-list"></i>
+                        <i class="fa fa-bullhorn"></i>
                         <h3 class="box-title">List of campaigns</h3>
                     </div>
 
@@ -30,7 +30,6 @@
                                     <th>TITLE</th>
                                     <th>DESCRIPTION</th>
                                     <th>MONEY TO RAISE</th>
-                                    <th>ADDRESS</th>
                                     <th></th>
                         		</tr>
                         	</thead>
@@ -45,14 +44,12 @@
                                     <td>
                                         {{campaign.money}}
                                     </td>
-                                    <td>
-                                        {{campaign.address}}
-                                    </td>
                         			<td>
-                                        <p ng-click="deleteProperty(campaign)" href="#" class="btn btn-xs btn-danger"><i class="fa fa-trash-o"></i></p>
+                                        <a ng-click="deleteProperty(campaign)" href="/#/campaigns/{{campaign.id}}" class="btn btn-xs btn-primary"> VIEW</a>
                                     </td>
                         		</tr>
                         	</tbody>
+                        </table>
                     </div>
                 </div>
             </div>

@@ -1,4 +1,4 @@
-x<title>{{msg}} Campaign</title>
+<title>{{msg}} Campaign</title>
 
 <aside class="right-side">
     <section class="content-header">
@@ -20,7 +20,7 @@ x<title>{{msg}} Campaign</title>
                     <div class="box-header">
                         <div class="pull-right box-tools">
                         </div>
-                        <i class="fa fa-list"></i>
+                        <i class="fa fa-bullhorn"></i>
                         <h3 class="box-title">{{msg}} Campaign</h3>
                     </div>
 
@@ -32,18 +32,18 @@ x<title>{{msg}} Campaign</title>
                             </div>
                             <div class="form-group">
                                 <label>Campaign description</label>
-                                <input ng-model="campaign.dscription" type="text" class="form-control">
+                                <textarea ng-model="campaign.description" class="form-control"></textarea>
                             </div>
                             <div class="form-group">
-                                <label>Campaign address</label>
+                                <label>Bitcoin address</label>
                                 <input ng-model="campaign.address" type="text" class="form-control">
                             </div>
                             <div class="form-group">
-                                <label>Campaign money</label>
+                                <label>Money to raise</label>
                                 <input ng-model="campaign.money" type="text" class="form-control">
                             </div>
 
-                            <button type="submit" class="btn btn-primary"><i class="fa fa-add"></i> {{msg}} campaign</button>
+                            <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i> {{msg}} campaign</button>
                         </form>
                     </div>
                 </div>

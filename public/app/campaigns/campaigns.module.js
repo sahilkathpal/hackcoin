@@ -15,6 +15,11 @@
 			controller: 'campaigns.IndexCtrl'
 		})
 
+		.when('/campaigns/:id', {
+			templateUrl: 'app/campaigns/html/profile.html',
+			controller: 'campaigns.ProfileCtrl'
+		});
+
 	}]);
 	
 }());

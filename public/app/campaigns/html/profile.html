@@ -1,0 +1,50 @@
+<title> Campaign</title>
+
+<aside class="right-side">
+    <section class="content-header">
+        <h1>
+            Campaign
+            <small> campaign profile</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="/#/"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li><a href="/#/campaigns"><i class="fa fa-list"></i> Campaigns</a></li>
+            <li class="active"></li>
+        </ol>
+    </section>
+
+    <section class="content">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="box box-primary">
+                    <div class="box-header">
+                        <div class="pull-right box-tools">
+                        </div>
+                        <i class="fa fa-bullhorn"></i>
+                        <h3 class="box-title"> Campaign</h3>
+                    </div>
+
+                    <div class="box-body table-responsive">
+                        {{campaign}}
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="box box-primary">
+                    <div class="box-header">
+                        <div class="pull-right box-tools">
+                        </div>
+                        <i class="fa fa-qrcode"></i>
+                        <h3 class="box-title"> Transfer address</h3>
+                    </div>
+
+                    <div class="box-body table-responsive">
+                        <img ng-src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data={{campaign.address}}" width="200">
+                        <br><br>
+                        {{campaign.address}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</aside>

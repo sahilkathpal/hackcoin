@@ -10,22 +10,7 @@ class CampaignsController extends \BaseController {
 	 */
 	public function index()
 	{
-		if( Input::has("filter") && Input::has("filterText") )
-		{
-			return Campaign::where( Input::get('filter'), 'LIKE', '%'.Input::get('filterText').'%' )->paginate( 10 );
-		}
-		return Campaign::paginate( 10 );
-	}
-
-	/**
-	 * Show the form for creating a new resource.
-	 * GET /campaigns/create
-	 *
-	 * @return Response
-	 */
-	public function create()
-	{
-		//
+		return Campaign::get();
 	}
 
 	/**
@@ -52,19 +37,7 @@ class CampaignsController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		return Campaign::all();
-	}
-
-	/**
-	 * Show the form for editing the specified resource.
-	 * GET /campaigns/{id}/edit
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit($id)
-	{
-		//
+		return Campaign::findOrFail($id);
 	}
 
 	/**
