@@ -2,13 +2,9 @@
 	'use strict';
 	
 	angular.module('BrsManager', [
-		'ngRoute',
 		'ngResource',
-		'angularUtils.directives.dirPagination',
-		'BrsManager.properties',
-		'BrsManager.users',
-		'BrsManager.workorders',
-		'BrsManager.settings',
+		'ngRoute',
+		'BrsManager.campaigns',
 		'BrsManager.dashboard'
 	])
 

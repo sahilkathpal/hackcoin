@@ -1,0 +1,61 @@
+<title>Campaigns</title>
+
+<aside class="right-side">
+    <section class="content-header">
+        <h1>
+            Campaigns
+            <small>List of all campaigns</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="/#/"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+            <li class="active">Campaigns</li>
+        </ol>
+    </section>
+
+    <section class="content">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box box-warning">
+                    <div class="box-header">
+                        <div class="pull-right box-tools">
+                        </div>
+                        <i class="fa fa-list"></i>
+                        <h3 class="box-title">List of campaigns</h3>
+                    </div>
+
+                    <div class="box-body table-responsive">
+                        <table class="table table-hover">
+                        	<thead>
+                        		<tr>
+                                    <th>TITLE</th>
+                                    <th>DESCRIPTION</th>
+                                    <th>MONEY TO RAISE</th>
+                                    <th>ADDRESS</th>
+                                    <th></th>
+                        		</tr>
+                        	</thead>
+                        	<tbody>
+                        		<tr ng-repeat="campaign in campaigns">
+                                    <td>
+                                        {{campaign.title}}
+                                    </td>
+                                    <td>
+                                        {{campaign.description}}
+                                    </td>
+                                    <td>
+                                        {{campaign.money}}
+                                    </td>
+                                    <td>
+                                        {{campaign.address}}
+                                    </td>
+                        			<td>
+                                        <p ng-click="deleteProperty(campaign)" href="#" class="btn btn-xs btn-danger"><i class="fa fa-trash-o"></i></p>
+                                    </td>
+                        		</tr>
+                        	</tbody>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</aside>

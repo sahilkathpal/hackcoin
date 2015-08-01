@@ -96,10 +96,6 @@ Route::group(['prefix' => 'api'], function ()
  * Resourcefull Routes
  *
  */
-Route::resource('properties', 'PropertiesController');
+
 Route::resource('users', 'UsersController');
-Route::resource('workers', 'WorkersController');
-Route::resource('sections', 'SectionsController');
-Route::resource('tasks', 'TasksController');
-Route::resource('workorders', 'WorkordersController');
-Route::resource('responses', 'ResponsesController');
+Route::resource('campaigns', 'CampaignsController');
