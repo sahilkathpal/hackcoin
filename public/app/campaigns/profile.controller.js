@@ -11,6 +11,7 @@
 					$scope.campaign = data;
 
 					setProgress();
+					//repeat();
 					intervalPromise = $interval(repeat, 4000);
 					
 				});

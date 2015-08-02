@@ -34,6 +34,10 @@ Route::any('test', function()
 	return Input::all();
 });
 
+Route::post('callback', function () {
+	
+});
+
 /*
  * Custom defined Routes
  *
