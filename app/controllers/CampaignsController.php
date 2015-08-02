@@ -10,7 +10,7 @@ class CampaignsController extends \BaseController {
 	 */
 	public function index()
 	{
-		return Campaign::get();
+		return Campaign::with('user')->get();
 	}
 
 	/**
@@ -21,7 +21,9 @@ class CampaignsController extends \BaseController {
 	 */
 	public function store()
 	{
-		$campaigns = Campaign::create( Input::all() );
+		$data = Input::all();
+		$data['user_id'] = Auth::user()->id;
+		$campaigns = Campaign::create( $data );
 		if( $campaigns )
 			return ['status' => true, 'data' => $campaigns];
 		else
@@ -37,7 +39,7 @@ class CampaignsController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		return Campaign::findOrFail($id);
+		return Campaign::with('user')->findOrFail($id);
 	}
 
 	/**

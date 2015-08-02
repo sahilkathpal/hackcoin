@@ -296,6 +296,8 @@ function notify(msg, status, time) {
 			Campaign.get({id: $routeParams.id}).$promise
 				.then(function (data) {
 					$scope.campaign = data;
+
+					$scope.progress = (parseFloat($scope.campaign.raised)/parseFloat($scope.campaign.money)) * 100;
 				});
 
 		}
@@ -310,6 +312,35 @@ function notify(msg, status, time) {
 		var Campaign = $resource(baseUrl + 'campaigns/:id', null,  {update: {method: 'PUT'}, getAll: {method: 'GET'}});
 		return Campaign;
 	});
+	
+}());
+(function () {
+	'use strict';
+	
+	angular.module('BrsManager.dashboard')
+	.controller('dashboard.DashboardCtrl', ['$scope', '$http', 'Campaign', '$interval',
+
+		function ($scope, $http, Campaign, $interval) {
+			var baseUrl = window.location.origin + '/';
+
+			getCampaigns();
+
+			var intervalPromise = $interval(getCampaigns, 2000);
+
+			function getCampaigns () {
+				Campaign.query().$promise
+					.then(function (data) {
+						$scope.campaigns = data;
+					});
+			}
+
+			$scope.$on('$destroy',function(){
+			    if(intervalPromise)
+			        $interval.cancel(intervalPromise);   
+			});
+		}
+
+	]);
 	
 }());
 /*global $, jQuery, alert, console, angular, app, google, setTimeout, window, _*/
@@ -408,35 +439,6 @@ function notify(msg, status, time) {
 		}]);
 }());
 
-(function () {
-	'use strict';
-	
-	angular.module('BrsManager.dashboard')
-	.controller('dashboard.DashboardCtrl', ['$scope', '$http', 'Campaign', '$interval',
-
-		function ($scope, $http, Campaign, $interval) {
-			var baseUrl = window.location.origin + '/';
-
-			getCampaigns();
-
-			var intervalPromise = $interval(getCampaigns, 2000);
-
-			function getCampaigns () {
-				Campaign.query().$promise
-					.then(function (data) {
-						$scope.campaigns = data;
-					});
-			}
-
-			$scope.$on('$destroy',function(){
-			    if(intervalPromise)
-			        $interval.cancel(intervalPromise);   
-			});
-		}
-
-	]);
-	
-}());
 (function () {
 	'use strict';
 	

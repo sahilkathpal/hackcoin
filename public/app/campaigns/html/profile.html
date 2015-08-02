@@ -25,7 +25,24 @@
                     </div>
 
                     <div class="box-body table-responsive">
-                        {{campaign}}
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="thumbnail">
+                                    <div class="caption">
+                                        <h3>{{campaign.title}}</h3>
+                                        <p>I am {{campaign.user.name}} (<em>{{campaign.user.email}}</em>)</p>
+                                        <p>{{campaign.description}}</p>
+                                        <br>
+                                        Help me raise {{campaign.money}} BitCoins
+                                        <br><br>
+                                        <div class="progress">
+                                            <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: {{progress}}%">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

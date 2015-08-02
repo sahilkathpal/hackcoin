@@ -8,6 +8,8 @@
 			Campaign.get({id: $routeParams.id}).$promise
 				.then(function (data) {
 					$scope.campaign = data;
+
+					$scope.progress = (parseFloat($scope.campaign.raised)/parseFloat($scope.campaign.money)) * 100;
 				});
 
 		}

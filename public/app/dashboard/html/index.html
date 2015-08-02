@@ -28,11 +28,14 @@
                                 <h3 class="box-title">{{campaign.title}}</h3>
                             </div>
                             <div class="box-body">
-                                {{campaign.description}}
+                                <img ng-src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data={{campaign.address}}" width="100">
+                                <br>
+                                (<em>{{campaign.address}}</em>)
                                 <br><br>
+                                <p>I am {{campaign.user.name}} (<em>{{campaign.user.email}}</em>)</p>
+                                <p>{{campaign.description}}</p>
                                 Help me raise {{campaign.money}} bitcoins
                                 <br><br>
-                                <img ng-src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data={{campaign.address}}" width="100">
                             </div>
                         </div>
                     </div>
